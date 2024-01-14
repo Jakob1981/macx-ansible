@@ -10,4 +10,8 @@
 
    - name: upgrade repository
      apt:
-       upgrade: dist 
+       upgrade: yes
+
+   - name: autoremove
+     apt:
+       autoremove: false
