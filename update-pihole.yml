@@ -1,0 +1,10 @@
+---
+
+- name: Update PiHole
+  hosts: 192.168.0.7
+  become: false  # Run tasks with elevated privileges (sudo)
+
+  tasks:
+    - name: Update PiHole
+      command: pihole -up
+
