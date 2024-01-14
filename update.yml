@@ -1,7 +1,9 @@
 ---
  
  - hosts: all
-   become: false
+   become: False
+
+
    tasks:
  
    - name: update repository index
@@ -14,4 +16,4 @@
 
    - name: autoremove
      apt:
-       autoremove: false
+       autoremove: False
