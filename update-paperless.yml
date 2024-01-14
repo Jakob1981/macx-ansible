@@ -1,0 +1,28 @@
+---
+- name: Update Paperless NGX
+  hosts: 192.168.0.12
+  become: false  # Run tasks with elevated privileges (sudo)
+
+  tasks:
+    - name: Stop and remove Docker containers
+      command: docker-compose down
+      args:
+       chdir: /home/paperless/paperless-ngx
+
+    - name: Pause for 30 seconds
+      pause:
+        seconds: 30
+
+    - name: Pull Docker images
+      command: docker-compose pull
+      args:
+        chdir: /home/paperless/paperless-ngx
+
+    - name: Pause for 30 seconds
+      pause:
+        seconds: 30
+
+    - name: Start Docker containers
+      command: docker-compose up -d
+      args:
+        chdir: /home/paperless/paperless-ngx 
